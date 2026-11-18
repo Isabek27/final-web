@@ -3,7 +3,7 @@
 **Course:** Web Technologies  
 **Topic:** Football analytics dashboard (continuation of the same Midterm and Endterm project).  
 **Group members:** **Batyrbek Isabek, Konakbay Yerassyl**.  
-**Published website:** **ADD YOUR GITHUB PAGES / NETLIFY LINK**.  
+**Published website:** **https://isabek27.github.io/final-web/**.  
 **Source repository:** **https://github.com/Isabek27/final-web**.
 
 MatchIQ Pro is a six-page responsive football analytics demo site. It uses HTML, CSS, Bootstrap, JavaScript, DOM, jQuery, a public football API, OOP and `localStorage`.
