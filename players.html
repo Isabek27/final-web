@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MatchIQ Pro: football analytics student project">
+  <title>Player Database | MatchIQ Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-icon"><i class="fa-solid fa-futbol"></i></span><span>MatchIQ<b>Pro</b></span></a>
+      <button class="btn menu-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false">☰ Menu</button>
+      <nav id="sidebarNav" class="nav collapse d-lg-block" aria-label="Main navigation">
+        <a class="nav-link" href="index.html"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Dashboard</a>
+<a class="nav-link" href="match.html"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>Matches</a>
+<a class="nav-link" href="standings.html"><i class="fa-solid fa-trophy" aria-hidden="true"></i>Standings</a>
+<a class="nav-link active" href="players.html" aria-current="page"><i class="fa-solid fa-user" aria-hidden="true"></i>Players</a>
+<a class="nav-link" href="ai.html"><i class="fa-solid fa-brain" aria-hidden="true"></i>AI-Style Predictions</a>
+<a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="topbar">
+        <h1>Player Database</h1>
+        <div class="header-tools">
+          <input class="search" type="search" id="siteSearch" placeholder="Search this page..." aria-label="Search this page">
+          <button class="btn" type="button" id="themeButton" aria-label="Switch theme"><i class="fa-solid fa-moon"></i> Theme</button>
+        </div>
+      </header>
+      <main class="content">
+
+        <p class="demo">Demo player statistics. Sorting and searching run in your browser.</p>
+        <div class="toolbar">
+          <label for="playerSort">Sort by:</label>
+          <select class="select" id="playerSort">
+            <option value="goals">Goals</option>
+            <option value="assists">Assists</option>
+            <option value="name">Name</option>
+          </select>
+        </div>
+        <section id="playerList" class="grid-2" aria-label="Player cards"></section>
+        <p id="emptyNote" class="empty" hidden>No players found.</p>
+        <section class="card section">
+          <h2>Player Comparison</h2>
+          <p class="hint">Compare two football players.</p>
+          <div class="grid-2">
+            <div class="form-field">
+              <label for="playerOne">First Player</label>
+              <select id="playerOne" class="select"></select>
+            </div>
+            <div class="form-field">
+              <label for="playerTwo">Second Player</label>
+              <select id="playerTwo" class="select"></select>
+            </div>
+          </div>
+          <button id="compareButton" class="btn primary"type="button">Compare Players</button>
+          <div id="comparisonResult" class="section"aria-live="polite"></div>
+        </section>
+
+<section class="card section">
+  <h2>My Players</h2>
+  <p class="hint">
+    Add and manage your own football players.
+  </p>
+
+  <form id="customPlayerForm">
+    <div class="grid-2">
+
+      <div class="form-field">
+        <label for="customName">Player Name</label>
+        <input id="customName" class="input"
+               type="text" minlength="2"
+               maxlength="60" required>
+      </div>
+
+      <div class="form-field">
+        <label for="customTeam">Team</label>
+        <input id="customTeam" class="input"
+               type="text" minlength="2"
+               maxlength="60" required>
+      </div>
+
+      <div class="form-field">
+        <label for="customGoals">Goals</label>
+        <input id="customGoals" class="input"
+               type="number" min="0" step="1" required>
+      </div>
+
+      <div class="form-field">
+        <label for="customAssists">Assists</label>
+        <input id="customAssists" class="input"
+               type="number" min="0" step="1" required>
+      </div>
+
+      <div class="form-field">
+        <label for="customXg">Expected Goals (xG)</label>
+        <input id="customXg" class="input"
+               type="number" min="0" step="0.1" required>
+      </div>
+
+    </div>
+
+    <button class="btn primary" type="submit"
+            id="saveCustomPlayer">
+      Add Player
+    </button>
+
+    <button class="btn" type="button"
+            id="cancelCustomEdit" hidden>
+      Cancel
+    </button>
+  </form>
+
+  <p id="customPlayerStatus" role="status"></p>
+
+  <h3 class="section">Saved Players</h3>
+  <div id="customPlayerList" class="table-wrap"></div>
+</section>
+
+      </main>
+      <footer class="footer">MatchIQ Pro · Student final project · Demo data except the live API section</footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/players.js"></script>
+  <script src="js/jquery-features.js"></script>
+</body>
+</html>

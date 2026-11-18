@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MatchIQ Pro: football analytics student project">
+  <title>Contact & Feedback | MatchIQ Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-icon"><i class="fa-solid fa-futbol"></i></span><span>MatchIQ<b>Pro</b></span></a>
+      <button class="btn menu-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false">☰ Menu</button>
+      <nav id="sidebarNav" class="nav collapse d-lg-block" aria-label="Main navigation">
+        <a class="nav-link" href="index.html"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i>Dashboard</a>
+<a class="nav-link" href="match.html"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>Matches</a>
+<a class="nav-link" href="standings.html"><i class="fa-solid fa-trophy" aria-hidden="true"></i>Standings</a>
+<a class="nav-link" href="players.html"><i class="fa-solid fa-user" aria-hidden="true"></i>Players</a>
+<a class="nav-link" href="ai.html"><i class="fa-solid fa-brain" aria-hidden="true"></i>AI-Style Predictions</a>
+<a class="nav-link active" href="contact.html" aria-current="page"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="topbar">
+        <h1>Contact & Feedback</h1>
+        <div class="header-tools">
+          
+          <button class="btn" type="button" id="themeButton" aria-label="Switch theme"><i class="fa-solid fa-moon"></i> Theme</button>
+        </div>
+      </header>
+      <main class="content">
+
+        <p class="demo">Demo form: data is validated but not sent to a server.</p>
+        <div class="grid-2">
+          <section class="card">
+            <h2>API Access Request</h2>
+            <p class="muted small">All fields are required. Errors appear below each field.</p>
+            <form id="contactForm" novalidate>
+              <div class="form-field"><label for="name">Name</label><input class="input" id="name" name="name" placeholder="At least 2 characters" aria-describedby="nameError"><small class="error" id="nameError"></small></div>
+              <div class="form-field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" placeholder="name@example.com" aria-describedby="emailError"><small class="error" id="emailError"></small></div>
+              <div class="form-field"><label for="topic">Subject</label><select class="select" id="topic" name="topic" aria-describedby="topicError"><option value="">Choose a subject</option><option value="api">API access</option><option value="bug">Website bug</option><option value="partner">Partnership</option></select><small class="error" id="topicError"></small><p id="topicTip" class="topic-tip" aria-live="polite"></p></div>
+              <div class="form-field"><label for="message">Message</label><textarea class="textarea" id="message" name="message" rows="5" placeholder="At least 15 characters" aria-describedby="messageError"></textarea><small class="error" id="messageError"></small></div>
+              <div class="form-field"><div class="checkbox-row"><input type="checkbox" id="agreement" name="agreement"><label for="agreement">I understand that this is a demo form and does not send data.</label></div><small class="error" id="agreementError"></small></div>
+              <button type="submit" class="btn primary">Validate Form</button>
+              <div id="formSuccess" class="success" role="status" hidden></div>
+            </form>
+          </section>
+          <aside class="card">
+            <h2>About This Project</h2>
+            <p>MatchIQ Pro is a football analytics demo website built for a Web Technologies course.</p>
+            <p class="muted">Explore matches, compare players, view league tables and see sample predictions.</p>
+            <button type="button" class="btn help-button">How Does the Form Work?</button>
+            <p class="help-content">JavaScript validates the name, email, subject, message and consent. Invalid forms are not submitted.</p>
+          </aside>
+        </div>
+
+      </main>
+      <footer class="footer">MatchIQ Pro · Student final project · Demo data except the live API section</footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/jquery-features.js"></script>
+</body>
+</html>
