@@ -1,0 +1,17 @@
+# Render blueprint for the contact-form API (server.js).
+# Secrets are NOT stored here: set them in the Render dashboard.
+services:
+  - type: web
+    name: matchiq-pro
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://isabek27.github.io,http://localhost:3000

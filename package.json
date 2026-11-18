@@ -1,0 +1,12 @@
+{
+  "name": "matchiq-pro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MatchIQ Pro: football analytics student project",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

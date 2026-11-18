@@ -74,3 +74,21 @@ MatchIQ_Pro_Final/
 ## Group contribution and defense
 
 **Replace with actual names and contributions before submission.** Both group members need to demonstrate **all** functions and explain HTML, CSS, Bootstrap, JavaScript, DOM, validation, jQuery, OOP, API and localStorage. Each person should be ready to change/debug a piece of the code.
+
+## Contact Form → Telegram Bot
+
+The contact form sends messages to a Telegram bot through a small Node.js server (`server.js`).
+
+- GitHub Pages hosts only static files, so the server runs separately on **Render** (free plan).
+- The browser sends the form data to `https://matchiq-pro.onrender.com/api/contact`.
+- The server validates the data again and forwards it to Telegram.
+- The bot token is stored only on the server (Render environment variables / local `.env`) and is **never** in the repository or in browser JavaScript.
+- CORS allows requests only from `https://isabek27.github.io` and `http://localhost:3000`.
+
+### Run locally
+
+1. Copy `.env.example` to `.env` and fill in `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` (several IDs can be separated by commas).
+2. Run `npm start` (Node.js 22+).
+3. Open `http://localhost:3000/contact.html`.
+
+> Note: the free Render server sleeps after 15 minutes without requests. The first message after that may take 30–50 seconds.

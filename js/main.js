@@ -216,14 +216,53 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contactForm');
   if (form) {
     const success = document.getElementById('formSuccess');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    // Sends the form to our Node.js server, which forwards it to Telegram.
+    // The bot token is stored only on the server.
+    // GitHub Pages is static, so there the form calls the server hosted on Render.
+    const RENDER_API_URL = 'https://matchiq-pro.onrender.com/api/contact';
+    const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+    const CONTACT_API_URL = isLocal ? '/api/contact' : RENDER_API_URL;
+
+    function sendToTelegram() {
+      const topicSelect = document.getElementById('topic');
+      return fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          topic: topicSelect.options[topicSelect.selectedIndex].text,
+          message: document.getElementById('message').value
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (!data.ok) throw new Error(data.error || 'Server error');
+        });
+    }
+
     form.addEventListener('submit', event => {
       event.preventDefault();
       success.hidden = true;
-      if (validateForm()) {
-        success.textContent = 'All fields are valid. This is a demo form; no data was sent.';
-        success.hidden = false;
-        form.reset();
-      }
+      if (!validateForm()) return;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      sendToTelegram()
+        .then(() => {
+          success.textContent = 'Thank you! Your message was sent.';
+          form.reset();
+        })
+        .catch(error => {
+          success.textContent = 'Could not send the message: ' + error.message;
+        })
+        .finally(() => {
+          success.hidden = false;
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        });
     });
     form.querySelectorAll('input, select, textarea').forEach(field => {
       function recheck() {

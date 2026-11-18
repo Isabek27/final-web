@@ -33,7 +33,7 @@
       </header>
       <main class="content">
 
-        <p class="demo">Demo form: data is validated but not sent to a server.</p>
+        <p class="demo">Messages from this form are delivered to our Telegram bot.</p>
         <div class="grid-2">
           <section class="card">
             <h2>API Access Request</h2>
@@ -43,8 +43,8 @@
               <div class="form-field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" placeholder="name@example.com" aria-describedby="emailError"><small class="error" id="emailError"></small></div>
               <div class="form-field"><label for="topic">Subject</label><select class="select" id="topic" name="topic" aria-describedby="topicError"><option value="">Choose a subject</option><option value="api">API access</option><option value="bug">Website bug</option><option value="partner">Partnership</option></select><small class="error" id="topicError"></small><p id="topicTip" class="topic-tip" aria-live="polite"></p></div>
               <div class="form-field"><label for="message">Message</label><textarea class="textarea" id="message" name="message" rows="5" placeholder="At least 15 characters" aria-describedby="messageError"></textarea><small class="error" id="messageError"></small></div>
-              <div class="form-field"><div class="checkbox-row"><input type="checkbox" id="agreement" name="agreement"><label for="agreement">I understand that this is a demo form and does not send data.</label></div><small class="error" id="agreementError"></small></div>
-              <button type="submit" class="btn primary">Validate Form</button>
+              <div class="form-field"><div class="checkbox-row"><input type="checkbox" id="agreement" name="agreement"><label for="agreement">I agree that my message will be sent to the MatchIQ Pro team via Telegram.</label></div><small class="error" id="agreementError"></small></div>
+              <button type="submit" class="btn primary">Send Message</button>
               <div id="formSuccess" class="success" role="status" hidden></div>
             </form>
           </section>
@@ -53,7 +53,7 @@
             <p>MatchIQ Pro is a football analytics demo website built for a Web Technologies course.</p>
             <p class="muted">Explore matches, compare players, view league tables and see sample predictions.</p>
             <button type="button" class="btn help-button">How Does the Form Work?</button>
-            <p class="help-content">JavaScript validates the name, email, subject, message and consent. Invalid forms are not submitted.</p>
+            <p class="help-content">JavaScript validates the name, email, subject, message and consent. Valid messages are sent to a Telegram bot; invalid forms are not submitted.</p>
           </aside>
         </div>
 
